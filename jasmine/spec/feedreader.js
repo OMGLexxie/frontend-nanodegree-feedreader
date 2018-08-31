@@ -34,18 +34,16 @@ $(() => {
 
         // Check if body has .menu-hidden to hide side menu
         it('is hidden by default', () => {
-            expect($('body.menu-hidden').length).toBe(1);
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
         // Check if body toggles .menu-hidden to hide and show side menu
         it('toggles on click', () => {
             const menuIcon = $('.menu-icon-link');
-
-            expect($('body.menu-hidden').length).toBe(1);
             menuIcon.click() // Simulate click to show
-            expect($('body.menu-hidden').length).toBe(0);
+            expect($('body').hasClass('menu-hidden')).toBe(false);
             menuIcon.click() // Simulate click to hide
-            expect($('body.menu-hidden').length).toBe(1);
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
     });
          
